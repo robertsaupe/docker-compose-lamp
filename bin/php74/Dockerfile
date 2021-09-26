@@ -85,5 +85,8 @@ RUN a2enmod ssl \
     && a2ensite default-ssl \
     && c_rehash /etc/apache2/ssl/
 
+# Fix Permissions
+RUN usermod -u 1000 www-data
+
 # Cleanup
 RUN rm -rf /usr/src/*

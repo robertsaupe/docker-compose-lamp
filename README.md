@@ -16,10 +16,12 @@
 [Amazon](https://www.amazon.de/ref=as_li_ss_tl?ie=UTF8&linkCode=ll2&tag=robertsaupe-21&linkId=b79bc86cee906816af515980cb1db95e&language=de_DE)
 
 ## Features
-- Apache with SSL Support (http://localhost & https://localhost)
-- PHP with XDebug (5.4.x, 5.6.x, 7.1.x, 7.2.x, 7.3.x, 7.4.x, 8.0.x)
+- Apache with vhosts and SSL (http://localhost & https://localhost)
+- PHP (5.4.x, 5.6.x, 7.0.x, 7.1.x, 7.2.x, 7.3.x, 7.4.x, 8.0.x, 8.1.x)
 - MySQL/MariaDB
 - phpMyAdmin
+- XDebug
+- Imagick
 - Redis
 
 ## License
@@ -71,10 +73,14 @@ $ docker-compose up -d
 ```
 
 ## Getting started
-to use http://app.local or http://projects.local, you have to modify your /etc/hosts
+to use http://app.local or http://projects.local, you have to modify your [/etc/hosts](hosts)
 ```
 127.0.0.1  app.local
 127.0.0.1  projects.local
+```
+access to database
+```
+$hostname: database
 ```
 
 ## Credits

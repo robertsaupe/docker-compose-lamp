@@ -20,6 +20,10 @@ services:
       APACHE_DOCUMENT_ROOT: ${APACHE_DOCUMENT_ROOT-/var/www/html}
       PMA_PORT: ${HOST_MACHINE_PMA_PORT}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    extra_hosts:
+      - "localhost:127.0.0.1"
+      - "projects.local:127.0.0.1"
+      - "app.local:127.0.0.1"
   database:
     build:
       context: "./bin/${DATABASE}"
