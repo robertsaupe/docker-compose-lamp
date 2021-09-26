@@ -17,7 +17,7 @@
 
 ## Features
 - Apache with SSL Support (http://localhost & https://localhost)
-- PHP (5.4.x, 5.6.x, 7.1.x, 7.2.x, 7.3.x, 7.4.x, 8.0.x)
+- PHP with XDebug (5.4.x, 5.6.x, 7.1.x, 7.2.x, 7.3.x, 7.4.x, 8.0.x)
 - MySQL/MariaDB
 - phpMyAdmin
 - Redis
