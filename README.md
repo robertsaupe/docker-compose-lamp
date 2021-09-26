@@ -1,1 +1,2 @@
-# docker-compose-lamp
+# docker-compose-lamp - lamp stack environment for developer
+
