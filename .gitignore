@@ -1,2 +1,9 @@
 /.vscode
+/.env
 .DS_Store
+/logs/apache2/*
+/logs/mysql/*
+/data/mysql/*
+
+!.gitignore
+!.gitkeep
