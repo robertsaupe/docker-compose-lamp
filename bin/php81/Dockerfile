@@ -1,4 +1,4 @@
-FROM php:8.1.0RC2-apache-bullseye
+FROM php:8.1.0RC3-apache-bullseye
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
