@@ -33,8 +33,11 @@ This software is distributed under the MIT license. Please read [LICENSE](LICENS
 
 ## Installing
 
+### German introduction / deutsche Einleitung
+[blog.robertsaupe.de/docker-compose](https://blog.robertsaupe.de/docker-compose/)
+
 ### Requirements
-- Ubuntu/Debian
+- Debian/Ubuntu
 ```
 $ sudo apt install docker
 $ sudo apt install docker-compose
@@ -49,14 +52,19 @@ $ sudo pacman -S docker-compose
 $ sudo dnf install docker
 $ sudo dnf install docker-compose
 ```
+- macOS
+  - Install Docker Desktop according to [these instructions](https://docs.docker.com/desktop/mac/install/).
 
-### Service
+- Windows
+  - Install Docker Desktop according to [these instructions](https://docs.docker.com/desktop/windows/install/).
+
+### Service (Linux)
 ```
 $ sudo systemctl start docker.service
 $ sudo systemctl enable docker.service
 ```
 
-### Run without root
+### Run without root (Linux)
 ```
 $ sudo usermod -aG docker $USER
 $ sudo reboot
@@ -67,20 +75,56 @@ $ sudo reboot
 $ git clone https://github.com/robertsaupe/docker-compose-lamp.git
 $ cd docker-compose-lamp/
 $ cp sample.env .env
-// modify .env as needed
-$ docker-compose up -d
-// visit http://localhost
+
+### modify .env as needed
+
+### builds and starts the environment:
+./build.sh
+
+### starts the environment:
+./start.sh
+
+### stops the environment:
+./stop.sh
 ```
 
 ## Getting started
-to use http://app.local or http://projects.local, you have to modify your [/etc/hosts](hosts)
+
+### Visit
+- Dashboard
+  - [http://localhost](http://localhost)
+
+- phpMyAdmin
+  - [http://localhost:8080](http://localhost:8080)
+
+- virtual domains
+  - [http://app.local](http://app.local)
+  - [http://projects.local](http://projects.local)
+
+In order to use the above URL, you still need to change the hosts file.
+
+#### Linux/macOS
 ```
+$ sudo nano /etc/hosts
+```
+#### Windows
+You can just use Notepad for this. To do this, right-click on "Run as administrator" in the start menu. Then go to Open, show all files and navigate to the folder C:\Windows\System32\drivers\etc. Now you can open and edit the hosts file.
+
+### hosts-file
+```
+...
 127.0.0.1  app.local
 127.0.0.1  projects.local
+...
 ```
-access to database
+
+### Access to database
 ```
-$hostname: database
+<?php
+...
+$db_hostname="database";
+...
+?>
 ```
 
 ## Credits
