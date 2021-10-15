@@ -108,7 +108,7 @@ In order to use the above URL, you still need to change the hosts file.
 $ sudo nano /etc/hosts
 ```
 #### Windows
-You can just use Notepad for this. To do this, right-click on "Run as administrator" in the start menu. Then go to Open, show all files and navigate to the folder C:\Windows\System32\drivers\etc. Now you can open and edit the hosts file.
+You can just use Notepad for this. To do this, right-click on "Run as administrator" in the start menu. Then go to Open, show all files and navigate to the folder **C:\Windows\System32\drivers\etc**. Now you can open and edit the **hosts** file.
 
 ### hosts-file
 ```
