@@ -1,4 +1,4 @@
-FROM php:8.1.0RC3-apache-bullseye
+FROM php:8.1.0RC4-apache-bullseye
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
@@ -34,7 +34,7 @@ openssl && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install xdebug
-RUN pecl install xdebug-3.1.0beta2 && \
+RUN pecl install xdebug-3.1.0 && \
     docker-php-ext-enable xdebug
 
 # Install redis
@@ -49,7 +49,7 @@ RUN apt-get update && \
 # Workarround until imagick is available in pecl with php8 support
 # Imagick Commit to install
 # https://github.com/Imagick/imagick
-ARG IMAGICK_COMMIT="fa77acfa830d931e36c7ab7a0008b491e21d5d19"
+ARG IMAGICK_COMMIT="b4befd24a37b445d387652f787098d9b2b187518"
 
 RUN cd /usr/local/src && \
     git clone https://github.com/Imagick/imagick && \
