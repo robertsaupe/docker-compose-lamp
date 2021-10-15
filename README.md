@@ -119,11 +119,11 @@ You can just use Notepad for this. To do this, right-click on "Run as administra
 ```
 
 ### Access to database
-```
+```php
 <?php
-...
+//some before
 $db_hostname="database";
-...
+//some after
 ?>
 ```
 
