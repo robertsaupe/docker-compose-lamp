@@ -1,4 +1,4 @@
-FROM php:8.0.11-apache-bullseye
+FROM php:8.0.13-apache-bullseye
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
@@ -34,7 +34,7 @@ openssl && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install xdebug
-RUN pecl install xdebug-3.0.4 && \
+RUN pecl install xdebug-3.1.1 && \
     docker-php-ext-enable xdebug
 
 # Install redis
@@ -44,24 +44,31 @@ RUN pecl install redis-5.3.4 && \
 # Install imagick
 RUN apt-get update && \
     apt-get -y --no-install-recommends install --fix-missing libmagickwand-dev && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    pecl install imagick && \
+    docker-php-ext-enable imagick
+
+# Install imagick
+#RUN apt-get update && \
+#    apt-get -y --no-install-recommends install --fix-missing libmagickwand-dev && \
+#    rm -rf /var/lib/apt/lists/*
 
 # Workarround until imagick is available in pecl with php8 support
 # Imagick Commit to install
 # https://github.com/Imagick/imagick
-ARG IMAGICK_COMMIT="132a11fd26675db9eb9f0e9a3e2887c161875206"
+#ARG IMAGICK_COMMIT="132a11fd26675db9eb9f0e9a3e2887c161875206"
 
-RUN cd /usr/local/src && \
-    git clone https://github.com/Imagick/imagick && \
-    cd imagick && \
-    git checkout ${IMAGICK_COMMIT} && \
-    phpize && \
-    ./configure && \
-    make && \
-    make install && \
-    cd .. && \
-    rm -rf imagick && \
-    docker-php-ext-enable imagick
+#RUN cd /usr/local/src && \
+#    git clone https://github.com/Imagick/imagick && \
+#    cd imagick && \
+#    git checkout ${IMAGICK_COMMIT} && \
+#    phpize && \
+#    ./configure && \
+#    make && \
+#    make install && \
+#    cd .. && \
+#    rm -rf imagick && \
+#    docker-php-ext-enable imagick
 
 # Other PHP8 Extensions
 
