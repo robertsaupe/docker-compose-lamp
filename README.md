@@ -100,8 +100,8 @@ $ cp sample.env .env
   - [http://localhost:8080](http://localhost:8080)
 
 - virtual domains
-  - [http://app.local](http://app.local)
-  - [http://projects.local](http://projects.local)
+  - [http://app.localhost](http://app.localhost)
+  - [http://projects.localhost](http://projects.localhost)
 
 In order to use the above URL, you still need to change the hosts file.
 
@@ -115,8 +115,8 @@ You can just use Notepad for this. To do this, right-click on "Run as administra
 ### hosts-file
 ```
 ...
-127.0.0.1  app.local
-127.0.0.1  projects.local
+127.0.0.1  app.localhost
+127.0.0.1  projects.localhost
 ...
 ```
 
