@@ -17,8 +17,10 @@
 
 ## Features
 - Apache with vhosts and SSL (http://localhost & https://localhost)
-- PHP (5.4.x, 5.6.x, 7.0.x, 7.1.x, 7.2.x, 7.3.x, 7.4.x, 8.0.x, 8.1.x)
-- MySQL/MariaDB
+- PHP [Currently Supported Versions] (7.4.x, 8.0.x, 8.1.x)
+- PHP [End of life / not recommended] (5.4.x, 5.6.x, 7.0.x, 7.1.x, 7.2.x, 7.3.x)
+- MySQL (5.7, 8.x)
+- MariaDB (10.3, 10.4, 10.5, 10.6, 10.7)
 - phpMyAdmin
 - XDebug
 - Imagick
@@ -118,7 +120,9 @@ You can just use Notepad for this. To do this, right-click on "Run as administra
 ...
 ```
 
-### Access to database
+### Database
+
+#### PHP Access
 ```php
 <?php
 //some before
@@ -127,5 +131,14 @@ $db_hostname="database";
 ?>
 ```
 
+#### MYSQL_INITDB_DIR:
+```
+When a container is started for the first time files in this directory with the extensions:
+.sh, .sql, .sql.gz and .sql.xz
+will be executed in alphabetical order.
+
+default location is ./config/initdb
+```
+
 ## Credits
-- https://github.com/sprintcube/docker-compose-lamp
+- forked from https://github.com/sprintcube/docker-compose-lamp

@@ -1,4 +1,4 @@
-FROM php:8.1.0-apache-bullseye
+FROM php:8.1.2-apache-bullseye
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
@@ -34,11 +34,11 @@ openssl && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install xdebug
-RUN pecl install xdebug-3.1.1 && \
+RUN pecl install xdebug-3.1.2 && \
     docker-php-ext-enable xdebug
 
 # Install redis
-RUN pecl install redis-5.3.4 && \
+RUN pecl install redis-5.3.6 && \
     docker-php-ext-enable redis
 
 # Install imagick

@@ -1,4 +1,4 @@
-FROM php:7.4.2-apache-buster
+FROM php:7.4.27-apache-buster
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
@@ -34,7 +34,7 @@ openssl && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install xdebug
-RUN pecl install xdebug-2.8.0 && \
+RUN pecl install xdebug-2.8.1 && \
     docker-php-ext-enable xdebug
 
 # Install redis
