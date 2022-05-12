@@ -20,7 +20,7 @@
 - PHP [Currently Supported Versions] (7.4.x, 8.0.x, 8.1.x)
 - PHP [End of life / not recommended] (5.4.x, 5.6.x, 7.0.x, 7.1.x, 7.2.x, 7.3.x)
 - MySQL (5.7, 8.x)
-- MariaDB (10.3, 10.4, 10.5, 10.6, 10.7)
+- MariaDB (10.3, 10.4, 10.5, 10.6, 10.7, 10.8-rc)
 - phpMyAdmin
 - XDebug
 - Imagick

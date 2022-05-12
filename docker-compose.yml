@@ -22,8 +22,8 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     extra_hosts:
       - "localhost:127.0.0.1"
-      - "projects.local:127.0.0.1"
-      - "app.local:127.0.0.1"
+      - "projects.localhost:127.0.0.1"
+      - "app.localhost:127.0.0.1"
   database:
     build:
       context: "./bin/${DATABASE}"
@@ -31,6 +31,7 @@ services:
     restart: 'always'
     ports:
       - "127.0.0.1:${HOST_MACHINE_MYSQL_PORT}:3306"
+    user: ${CURRENT_UID}
     volumes: 
       - ${MYSQL_INITDB_DIR-./config/initdb}:/docker-entrypoint-initdb.d
       - ${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql
@@ -41,8 +42,9 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
   phpmyadmin:
-    image: phpmyadmin:latest
+    image: phpmyadmin:5.1
     container_name: '${COMPOSE_PROJECT_NAME}-phpmyadmin'
+    restart: 'always'
     links:
       - database
     environment:
@@ -61,7 +63,8 @@ services:
       - /sessions
       - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/conf.d/php-phpmyadmin.ini
   redis:
-    container_name: '${COMPOSE_PROJECT_NAME}-redis'
     image: redis:latest
+    container_name: '${COMPOSE_PROJECT_NAME}-redis'
+    restart: 'always'
     ports:
       - "127.0.0.1:${HOST_MACHINE_REDIS_PORT}:6379"

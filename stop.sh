@@ -13,6 +13,6 @@ docker exec -d $COMPOSE_PROJECT_NAME-$DATABASE chown -R $act_user /var/log/mysql
 docker exec -d $COMPOSE_PROJECT_NAME-$PHPVERSION chown -R $act_user /var/www/html
 docker exec -d $COMPOSE_PROJECT_NAME-$PHPVERSION chown -R $act_user /var/log/apache2
 
-docker-compose down
+CURRENT_UID=$(id -u):$(id -g) docker-compose down
 
 #read -p "Press any key to resume ..."
