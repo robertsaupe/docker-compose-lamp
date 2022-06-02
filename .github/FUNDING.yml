@@ -1,6 +1,6 @@
 # These are supported funding model platforms
 
-github: # robertsaupe
+github: robertsaupe
 patreon: robertsaupe
 open_collective: # Replace with a single Open Collective username
 ko_fi: # Replace with a single Ko-fi username
@@ -9,4 +9,4 @@ community_bridge: # Replace with a single Community Bridge project-name e.g., cl
 liberapay: # Replace with a single Liberapay username
 issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
-custom: https://www.paypal.com/donate?hosted_button_id=SQMRNY8YVPCZQ
+custom: ["https://www.paypal.com/donate?hosted_button_id=SQMRNY8YVPCZQ", "https://www.amazon.de/ref=as_li_ss_tl?ie=UTF8&linkCode=ll2&tag=robertsaupe-21&linkId=b79bc86cee906816af515980cb1db95e&language=de_DE"]

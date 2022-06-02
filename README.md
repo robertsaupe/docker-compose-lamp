@@ -5,18 +5,20 @@
 [Supporting](https://github.com/robertsaupe/docker-compose-lamp#supporting) |
 [Features](https://github.com/robertsaupe/docker-compose-lamp#features) |
 [License](https://github.com/robertsaupe/docker-compose-lamp#license) |
-[Requirements](https://github.com/robertsaupe/docker-compose-lamp#requirements) |
 [Installing](https://github.com/robertsaupe/docker-compose-lamp#installing) |
 [Getting started](https://github.com/robertsaupe/docker-compose-lamp#getting-started) |
 [Credits](https://github.com/robertsaupe/docker-compose-lamp#credits)
 
 ## Supporting
+
+[GitHub](https://github.com/sponsors/robertsaupe) |
 [Patreon](https://www.patreon.com/robertsaupe) |
 [PayPal](https://www.paypal.com/donate?hosted_button_id=SQMRNY8YVPCZQ) |
 [Amazon](https://www.amazon.de/ref=as_li_ss_tl?ie=UTF8&linkCode=ll2&tag=robertsaupe-21&linkId=b79bc86cee906816af515980cb1db95e&language=de_DE)
 
 ## Features
-- Apache with vhosts and SSL (http://localhost & https://localhost)
+
+- Apache with vhosts and SSL (<http://localhost> & <https://localhost>)
 - PHP [Currently Supported Versions] (7.4.x, 8.0.x, 8.1.x)
 - PHP [End of life / not recommended] (5.4.x, 5.6.x, 7.0.x, 7.1.x, 7.2.x, 7.3.x)
 - MySQL (5.7, 8.x)
@@ -27,33 +29,38 @@
 - Redis
 
 ## License
-This software is distributed under the MIT license. Please read [LICENSE](LICENSE) for information.
 
-## Requirements
-- docker
-- docker-compose
+This software is distributed under the MIT license. Please read [LICENSE](LICENSE) for information.
 
 ## Installing
 
 ### German introduction / deutsche Einleitung
+
 [blog.robertsaupe.de/docker-compose](https://blog.robertsaupe.de/docker-compose/)
 
 ### Requirements
+
 - Debian/Ubuntu
+
+```bash
+sudo apt install docker
+sudo apt install docker-compose
 ```
-$ sudo apt install docker
-$ sudo apt install docker-compose
-```
+
 - Arch/Manjaro
+
+```bash
+sudo pacman -S docker
+sudo pacman -S docker-compose
 ```
-$ sudo pacman -S docker
-$ sudo pacman -S docker-compose
-```
+
 - Fedora
+
+```bash
+sudo dnf install docker
+sudo dnf install docker-compose
 ```
-$ sudo dnf install docker
-$ sudo dnf install docker-compose
-```
+
 - macOS
   - Install Docker Desktop according to [these instructions](https://docs.docker.com/desktop/mac/install/).
 
@@ -61,22 +68,25 @@ $ sudo dnf install docker-compose
   - Install Docker Desktop according to [these instructions](https://docs.docker.com/desktop/windows/install/).
 
 ### Service (Linux)
-```
-$ sudo systemctl start docker.service
-$ sudo systemctl enable docker.service
+
+```bash
+sudo systemctl start docker.service
+sudo systemctl enable docker.service
 ```
 
 ### Run without root (Linux)
-```
-$ sudo usermod -aG docker $USER
-$ sudo reboot
+
+```bash
+sudo usermod -aG docker $USER
+sudo reboot
 ```
 
 ### Environment
-```
-$ git clone https://github.com/robertsaupe/docker-compose-lamp.git
-$ cd docker-compose-lamp/
-$ cp sample.env .env
+
+```bash
+git clone https://github.com/robertsaupe/docker-compose-lamp.git
+cd docker-compose-lamp/
+cp sample.env .env
 
 ### modify .env as needed
 
@@ -93,6 +103,7 @@ $ cp sample.env .env
 ## Getting started
 
 ### Visit
+
 - Dashboard
   - [http://localhost](http://localhost)
 
@@ -106,14 +117,18 @@ $ cp sample.env .env
 In order to use the above URL, you still need to change the hosts file.
 
 #### Linux/macOS
+
+```bash
+sudo nano /etc/hosts
 ```
-$ sudo nano /etc/hosts
-```
+
 #### Windows
+
 You can just use Notepad for this. To do this, right-click on "Run as administrator" in the start menu. Then go to Open, show all files and navigate to the folder **C:\Windows\System32\drivers\etc**. Now you can open and edit the **hosts** file.
 
 ### hosts-file
-```
+
+```text
 ...
 127.0.0.1  app.localhost
 127.0.0.1  projects.localhost
@@ -123,6 +138,7 @@ You can just use Notepad for this. To do this, right-click on "Run as administra
 ### Database
 
 #### PHP Access
+
 ```php
 <?php
 //some before
@@ -131,8 +147,9 @@ $db_hostname="database";
 ?>
 ```
 
-#### MYSQL_INITDB_DIR:
-```
+#### MYSQL_INITDB_DIR
+
+```text
 When a container is started for the first time files in this directory with the extensions:
 .sh, .sql, .sql.gz and .sql.xz
 will be executed in alphabetical order.
@@ -141,4 +158,5 @@ default location is ./config/initdb
 ```
 
 ## Credits
-- forked from https://github.com/sprintcube/docker-compose-lamp
+
+- forked from <https://github.com/sprintcube/docker-compose-lamp>
