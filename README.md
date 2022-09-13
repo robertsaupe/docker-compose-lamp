@@ -160,3 +160,8 @@ default location is ./config/initdb
 ## Credits
 
 - forked from <https://github.com/sprintcube/docker-compose-lamp>
+
+
+### Infrastructure model
+
+![Infrastructure model](.infragenie/infrastructure_model.png)
