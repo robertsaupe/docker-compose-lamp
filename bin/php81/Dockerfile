@@ -34,7 +34,7 @@ openssl && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install xdebug
-RUN pecl install xdebug-3.1.4 && \
+RUN pecl install xdebug-3.1.5 && \
     docker-php-ext-enable xdebug
 
 # Install redis

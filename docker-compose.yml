@@ -16,12 +16,21 @@ services:
       - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/php.ini
       - ${VHOSTS_DIR-./config/vhosts}:/etc/apache2/sites-enabled
       - ${LOG_DIR-./logs/apache2}:/var/log/apache2
+      - ${XDEBUG_LOG_DIR-./logs/xdebug}:/var/log/xdebug
     environment:
       APACHE_DOCUMENT_ROOT: ${APACHE_DOCUMENT_ROOT-/var/www/html}
       PMA_PORT: ${HOST_MACHINE_PMA_PORT}
+      PMA_SECURE_PORT: ${HOST_MACHINE_PMA_SECURE_PORT}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      HOST_MACHINE_MYSQL_PORT: ${HOST_MACHINE_MYSQL_PORT}
+      XDEBUG_CONFIG: "client_host=host.docker.internal remote_port=${XDEBUG_PORT}"
     extra_hosts:
+      - "host.docker.internal:host-gateway"
       - "localhost:127.0.0.1"
+      - "dash.localhost:127.0.0.1"
       - "projects.localhost:127.0.0.1"
       - "app.localhost:127.0.0.1"
   database:
@@ -42,7 +51,8 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
   phpmyadmin:
-    image: phpmyadmin:5.1
+    build: 
+      context: ./bin/phpmyadmin
     container_name: '${COMPOSE_PROJECT_NAME}-phpmyadmin'
     restart: 'always'
     links:
@@ -59,6 +69,7 @@ services:
       MEMORY_LIMIT: ${MEMORY_LIMIT}
     ports:
       - '${HOST_MACHINE_PMA_PORT}:80'
+      - '${HOST_MACHINE_PMA_SECURE_PORT}:443'
     volumes: 
       - /sessions
       - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/conf.d/php-phpmyadmin.ini

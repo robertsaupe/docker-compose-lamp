@@ -1,1 +1,1 @@
-FROM mariadb:10.8-rc
+FROM mariadb:10.8

@@ -1,4 +1,5 @@
 127.0.0.1  localhost
 
+127.0.0.1  dash.localhost
 127.0.0.1  projects.localhost
 127.0.0.1  app.localhost

@@ -1,4 +1,5 @@
-FROM php:8.0-apache-bullseye
+FROM php:8.2-rc-apache-bullseye
+#FROM php:8.2-apache-bullseye
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
@@ -34,7 +35,7 @@ openssl && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install xdebug
-RUN pecl install xdebug-3.1.5 && \
+RUN pecl install xdebug-3.2.0alpha3 && \
     docker-php-ext-enable xdebug
 
 # Install redis
@@ -48,35 +49,13 @@ RUN apt-get update && \
     pecl install imagick && \
     docker-php-ext-enable imagick
 
-# Install imagick
-#RUN apt-get update && \
-#    apt-get -y --no-install-recommends install --fix-missing libmagickwand-dev && \
-#    rm -rf /var/lib/apt/lists/*
-
-# Workarround until imagick is available in pecl with php8 support
-# Imagick Commit to install
-# https://github.com/Imagick/imagick
-#ARG IMAGICK_COMMIT="132a11fd26675db9eb9f0e9a3e2887c161875206"
-
-#RUN cd /usr/local/src && \
-#    git clone https://github.com/Imagick/imagick && \
-#    cd imagick && \
-#    git checkout ${IMAGICK_COMMIT} && \
-#    phpize && \
-#    ./configure && \
-#    make && \
-#    make install && \
-#    cd .. && \
-#    rm -rf imagick && \
-#    docker-php-ext-enable imagick
-
 # Other PHP8 Extensions
 
 RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install pdo_sqlite && \
     docker-php-ext-install mysqli && \
     docker-php-ext-install curl && \
-    docker-php-ext-install tokenizer && \
+    #docker-php-ext-install tokenizer && \
     docker-php-ext-install zip && \
     docker-php-ext-install -j$(nproc) intl && \
     docker-php-ext-install mbstring && \
