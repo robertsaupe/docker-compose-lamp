@@ -100,6 +100,19 @@ cp sample.env .env
 ./stop.sh
 ```
 
+#### on Windows (with WSL) Explorer
+
+```cmd
+### builds and starts the environment:
+build.cmd
+
+### starts the environment:
+start.cmd
+
+### stops the environment:
+stop.cmd
+```
+
 ## Getting started
 
 ### Visit
