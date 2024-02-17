@@ -6,6 +6,6 @@ then
   export $(cat .env | sed 's/#.*//g' | xargs)
 fi
 
-CURRENT_UID=$(id -u):$(id -g) docker-compose up -d --build
+CURRENT_UID=$(id -u):$(id -g) docker compose up -d --build
 
 #read -p "Press any key to resume ..."
